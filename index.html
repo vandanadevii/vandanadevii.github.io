@@ -6,12 +6,13 @@
 <title>Vandana Thakur | Growth Strategist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
   --yellow:#FFD400;
   --black:#111;
-  --glass:rgba(255,255,255,0.6);
+  --light:#f8f8f8;
 }
 
 *{
@@ -22,7 +23,7 @@
 }
 
 body{
-  background:linear-gradient(135deg,#ffffff,#f6f6f6);
+  background:linear-gradient(135deg,#ffffff,#f7f7f7);
   color:var(--black);
   overflow-x:hidden;
 }
@@ -44,8 +45,9 @@ h1,h2{
 
 h2{
   font-size:28px;
-  margin-bottom:50px;
+  margin-bottom:60px;
   font-weight:600;
+  letter-spacing:1px;
 }
 
 /* NAV */
@@ -53,9 +55,8 @@ h2{
 nav{
   position:fixed;
   width:100%;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,0.7);
-  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(8px);
   z-index:100;
 }
 
@@ -65,13 +66,15 @@ nav{
   padding:18px 20px;
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:40px;
 }
 
 nav a{
   text-decoration:none;
   color:var(--black);
   font-weight:500;
+  font-size:14px;
+  letter-spacing:1px;
 }
 
 nav a:hover{
@@ -81,28 +84,35 @@ nav a:hover{
 /* HERO */
 
 .hero{
-  padding-top:170px;
+  padding-top:180px;
   text-align:center;
 }
 
 .hero-name{
-  font-size:20px;
-  letter-spacing:2px;
+  font-size:18px;
+  letter-spacing:3px;
   font-weight:600;
-  margin-bottom:15px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:34px;
+  font-weight:600;
 }
 
 .hero p{
-  max-width:750px;
-  margin:15px auto;
+  max-width:700px;
+  margin:20px auto;
+  font-size:15px;
+  line-height:1.7;
 }
 
 .btn{
-  margin-top:25px;
+  margin-top:20px;
   display:inline-block;
-  padding:12px 28px;
+  padding:12px 30px;
   background:var(--yellow);
-  border-radius:6px;
+  border-radius:4px;
   text-decoration:none;
   font-weight:600;
   color:#000;
@@ -110,25 +120,39 @@ nav a:hover{
 }
 
 .btn:hover{
-  transform:translateY(-3px);
+  opacity:0.85;
 }
 
-/* GLASS CARD */
+/* HERO ICONS */
 
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  border-radius:12px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 8px 30px rgba(0,0,0,0.05);
-  transition:0.4s;
+.hero-connect{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:22px;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.08);
+.icon-btn{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#111;
+  border:1px solid #ddd;
+  transition:0.3s ease;
+  font-size:16px;
 }
+
+.icon-btn:hover{
+  background:var(--yellow);
+  border-color:var(--yellow);
+  color:#000;
+}
+
+/* GRID CARDS */
 
 .grid{
   display:grid;
@@ -136,64 +160,62 @@ nav a:hover{
   gap:25px;
 }
 
+.card{
+  padding:25px;
+  text-align:center;
+  border:1px solid #eee;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+.card:hover{
+  border-color:var(--yellow);
+}
+
 /* CASE STUDIES */
 
 .case-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+}
+
+@media(max-width:768px){
+  .case-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 .case-card{
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  border-radius:15px;
+  border:1px solid #eee;
+  border-radius:10px;
   overflow:hidden;
-  box-shadow:0 10px 40px rgba(0,0,0,0.05);
-  transition:0.4s;
+  transition:0.3s;
 }
 
 .case-card:hover{
-  transform:translateY(-6px);
+  border-color:var(--yellow);
 }
 
 .case-card img{
   width:100%;
-  height:220px;
+  aspect-ratio:16/9;
   object-fit:cover;
   cursor:pointer;
 }
 
 .case-content{
   padding:25px;
-}
-
-/* CONNECT ICONS */
-
-.connect{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  margin-bottom:60px;
-}
-
-.connect a{
-  text-decoration:none;
-  font-weight:500;
-  color:#000;
-  transition:0.3s;
-}
-
-.connect a:hover{
-  color:var(--yellow);
+  text-align:center;
 }
 
 /* FOOTER */
 
 footer{
   text-align:center;
-  padding:40px 0;
-  font-size:14px;
+  padding:50px 0;
+  font-size:13px;
+  letter-spacing:1px;
 }
 
 /* MODAL */
@@ -251,10 +273,17 @@ footer{
   <div class="hero-name">VANDANA THAKUR</div>
   <h1>D2C Growth Strategist & Performance Marketer</h1>
   <p>
-  8+ years scaling Meta, Google & paid campaigns for eCommerce and Lead Generation brands.
-  Helping businesses move from launch to predictable scale using structured testing and data-driven decisions.
+  8+ years scaling Meta and Google campaigns for eCommerce and Lead Generation brands.
+  Focused on predictable scaling, structured testing, and performance-driven growth.
   </p>
+
   <a href="#cases" class="btn">View Case Studies</a>
+
+  <div class="hero-connect">
+    <a href="#" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
+    <a href="#" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
+  </div>
 </section>
 
 <section id="skills">
@@ -278,7 +307,7 @@ footer{
     <h2 class="reveal">Industries Worked With</h2>
     <div class="grid">
       <div class="card reveal">Healthcare</div>
-      <div class="card reveal">Clothing & Fashion</div>
+      <div class="card reveal">Fashion</div>
       <div class="card reveal">Jewellery</div>
       <div class="card reveal">Dental</div>
       <div class="card reveal">Lead Generation</div>
@@ -291,17 +320,10 @@ footer{
 
 <section id="cases">
   <div class="container">
-
-    <!-- CONNECT ABOVE CASES -->
-    <div class="connect reveal">
-      <a href="#">Email</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Call Me</a>
-    </div>
-
     <h2 class="reveal">Case Studies</h2>
 
     <div class="case-grid">
+
       <div class="case-card reveal">
         <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
         <div class="case-content">
@@ -309,32 +331,32 @@ footer{
           <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
         </div>
       </div>
-    </div>
 
-  </div>
-
-      <div class="case-grid">
       <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
+        <img src="YOUR_IMAGE_2_URL" onclick="openModal(this.src)">
         <div class="case-content">
-          <h3>Footwear Brand</h3>
-          <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
+          <h3>Jewellery Brand</h3>
+          <p>3.8x ROAS • ₹18L Revenue • 27% CAC Drop</p>
         </div>
       </div>
-    </div>
 
-  </div>
-
-      <div class="case-grid">
       <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
+        <img src="YOUR_IMAGE_3_URL" onclick="openModal(this.src)">
         <div class="case-content">
-          <h3>Footwear Brand</h3>
-          <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
+          <h3>Skincare Brand</h3>
+          <p>2.9x ROAS • 42% CTR Increase</p>
         </div>
       </div>
-    </div>
 
+      <div class="case-card reveal">
+        <img src="YOUR_IMAGE_4_URL" onclick="openModal(this.src)">
+        <div class="case-content">
+          <h3>Lead Generation</h3>
+          <p>38% CPL Reduction • 5.1x ROI</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
