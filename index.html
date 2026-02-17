@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vandana Thakur | Growth Strategist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --yellow: #FFD400;
-  --black: #111;
-  --gray: #f6f6f6;
+:root{
+  --yellow:#FFD400;
+  --black:#111;
+  --glass:rgba(255,255,255,0.6);
 }
 
 *{
@@ -22,9 +22,9 @@
 }
 
 body{
-  background:#fff;
+  background:linear-gradient(135deg,#ffffff,#f5f5f5);
   color:var(--black);
-  line-height:1.6;
+  overflow-x:hidden;
 }
 
 .container{
@@ -34,7 +34,7 @@ body{
 }
 
 section{
-  padding:100px 0;
+  padding:110px 0;
 }
 
 h1,h2{
@@ -44,24 +44,27 @@ h1,h2{
 
 h2{
   font-size:28px;
-  margin-bottom:40px;
+  margin-bottom:50px;
+  font-weight:600;
 }
+
+/* NAV */
 
 nav{
   position:fixed;
   width:100%;
-  background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.7);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
   z-index:100;
 }
 
 .nav-inner{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:18px 20px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
 }
 
 nav a{
@@ -78,44 +81,53 @@ nav a:hover{
 /* HERO */
 
 .hero{
-  padding-top:150px;
+  padding-top:160px;
   text-align:center;
 }
 
 .hero p{
   max-width:750px;
   margin:15px auto;
+  font-weight:400;
 }
 
 .btn{
-  margin-top:20px;
+  margin-top:25px;
   display:inline-block;
   padding:12px 28px;
   background:var(--yellow);
-  color:#000;
-  text-decoration:none;
   border-radius:6px;
+  text-decoration:none;
   font-weight:600;
+  color:#000;
+  transition:0.3s;
 }
 
-/* SKILLS */
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* GLASS CARD */
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.05);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.08);
+}
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:var(--gray);
-  padding:25px;
-  border-radius:8px;
-  text-align:center;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
+  gap:25px;
 }
 
 /* CASE STUDIES */
@@ -127,10 +139,16 @@ nav a:hover{
 }
 
 .case-card{
-  border:1px solid #eee;
-  border-radius:10px;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
   overflow:hidden;
-  background:#fff;
+  box-shadow:0 10px 40px rgba(0,0,0,0.05);
+  transition:0.4s;
+}
+
+.case-card:hover{
+  transform:translateY(-6px);
 }
 
 .case-card img{
@@ -141,12 +159,7 @@ nav a:hover{
 }
 
 .case-content{
-  padding:20px;
-}
-
-.metrics{
-  margin-top:10px;
-  font-weight:500;
+  padding:25px;
 }
 
 /* CONNECT */
@@ -167,11 +180,9 @@ nav a:hover{
 /* FOOTER */
 
 footer{
-  background:#111;
-  color:#fff;
   text-align:center;
-  padding:30px 0;
-  margin-top:50px;
+  padding:40px 0;
+  font-size:14px;
 }
 
 /* MODAL */
@@ -199,6 +210,19 @@ footer{
   font-size:35px;
   cursor:pointer;
 }
+
+/* SCROLL REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
 </style>
 </head>
 
@@ -216,74 +240,41 @@ footer{
   </div>
 </nav>
 
-<section class="hero container">
+<section class="hero container reveal">
   <h1>D2C Growth Strategist & Performance Marketer</h1>
   <p>
-  8+ years of experience scaling Meta, Google and paid campaigns for eCommerce and Lead Generation brands.
-  I help brands move from launch to scale using structured testing, funnel optimization and data driven decision making.
+  8+ years scaling paid media across Meta, Google & Lead Generation ecosystems.
+  Helping brands move from launch to predictable scale using structured testing and data-first decisions.
   </p>
   <a href="#cases" class="btn">View Case Studies</a>
 </section>
 
 <section id="skills">
   <div class="container">
-    <h2>Core Expertise</h2>
+    <h2 class="reveal">Core Expertise</h2>
     <div class="grid">
-      <div class="card">Meta Ads</div>
-      <div class="card">Google Ads</div>
-      <div class="card">LinkedIn Ads</div>
-      <div class="card">CRO</div>
-      <div class="card">Campaign Management</div>
-      <div class="card">Tracking Setup</div>
-      <div class="card">Performance Analytics</div>
-      <div class="card">Brand Scaling</div>
-    </div>
-  </div>
-</section>
-
-<section id="industries">
-  <div class="container">
-    <h2>Industries Worked With</h2>
-    <div class="grid">
-      <div class="card">Healthcare</div>
-      <div class="card">Clothing</div>
-      <div class="card">Jewellery</div>
-      <div class="card">Dental</div>
-      <div class="card">Lead Generation</div>
-      <div class="card">Footwear</div>
-      <div class="card">Home Decor</div>
-      <div class="card">Skincare</div>
+      <div class="card reveal">Meta Ads</div>
+      <div class="card reveal">Google Ads</div>
+      <div class="card reveal">LinkedIn Ads</div>
+      <div class="card reveal">CRO</div>
+      <div class="card reveal">Campaign Management</div>
+      <div class="card reveal">Tracking Setup</div>
+      <div class="card reveal">Performance Analytics</div>
+      <div class="card reveal">Brand Scaling</div>
     </div>
   </div>
 </section>
 
 <section id="cases">
   <div class="container">
-    <h2>Case Studies</h2>
-
+    <h2 class="reveal">Case Studies</h2>
     <div class="case-grid">
 
-      <div class="case-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" onclick="openModal(this.src)">
+      <div class="case-card reveal">
+        <img src="YOUR_IMAGE_URL_HERE" onclick="openModal(this.src)">
         <div class="case-content">
           <h3>Footwear Brand</h3>
-          <div class="metrics">
-            4x ROAS<br>
-            $92,834 Revenue<br>
-            $30 CPR
-          </div>
-        </div>
-      </div>
-
-      <div class="case-card">
-        <img src="https://images.unsplash.com/photo-1557838923-2985c318be48" onclick="openModal(this.src)">
-        <div class="case-content">
-          <h3>Lead Generation Campaign</h3>
-          <div class="metrics">
-            10,000+ Leads<br>
-            ₹259,799 Spend<br>
-            ₹60 CPR
-          </div>
+          <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
         </div>
       </div>
 
@@ -292,7 +283,7 @@ footer{
 </section>
 
 <section id="contact">
-  <div class="container">
+  <div class="container reveal">
     <h2>Connect With Me</h2>
     <div class="connect">
       <a href="#">Email</a>
@@ -319,6 +310,18 @@ document.getElementById("modalImg").src=src;
 function closeModal(){
 document.getElementById("imgModal").style.display="none";
 }
+
+window.addEventListener('scroll',function(){
+const reveals=document.querySelectorAll('.reveal');
+for(let i=0;i<reveals.length;i++){
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+let revealPoint=100;
+if(elementTop < windowHeight - revealPoint){
+reveals[i].classList.add('active');
+}
+}
+});
 </script>
 
 </body>
