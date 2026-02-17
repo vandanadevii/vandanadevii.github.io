@@ -22,7 +22,7 @@
 }
 
 body{
-  background:linear-gradient(135deg,#ffffff,#f5f5f5);
+  background:linear-gradient(135deg,#ffffff,#f6f6f6);
   color:var(--black);
   overflow-x:hidden;
 }
@@ -64,13 +64,13 @@ nav{
   margin:auto;
   padding:18px 20px;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
+  gap:30px;
 }
 
 nav a{
   text-decoration:none;
   color:var(--black);
-  margin-left:20px;
   font-weight:500;
 }
 
@@ -81,14 +81,20 @@ nav a:hover{
 /* HERO */
 
 .hero{
-  padding-top:160px;
+  padding-top:170px;
   text-align:center;
+}
+
+.hero-name{
+  font-size:20px;
+  letter-spacing:2px;
+  font-weight:600;
+  margin-bottom:15px;
 }
 
 .hero p{
   max-width:750px;
   margin:15px auto;
-  font-weight:400;
 }
 
 .btn{
@@ -111,7 +117,7 @@ nav a:hover{
 
 .card{
   background:var(--glass);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
   border-radius:12px;
   padding:25px;
   text-align:center;
@@ -162,19 +168,24 @@ nav a:hover{
   padding:25px;
 }
 
-/* CONNECT */
+/* CONNECT ICONS */
 
 .connect{
   display:flex;
   justify-content:center;
   gap:40px;
-  margin-top:30px;
+  margin-bottom:60px;
 }
 
 .connect a{
   text-decoration:none;
-  color:#000;
   font-weight:500;
+  color:#000;
+  transition:0.3s;
+}
+
+.connect a:hover{
+  color:var(--yellow);
 }
 
 /* FOOTER */
@@ -230,21 +241,18 @@ footer{
 
 <nav>
   <div class="nav-inner">
-    <div><b>Vandana Thakur</b></div>
-    <div>
-      <a href="#skills">Expertise</a>
-      <a href="#industries">Industries</a>
-      <a href="#cases">Case Studies</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <a href="#skills">Expertise</a>
+    <a href="#industries">Industries</a>
+    <a href="#cases">Case Studies</a>
   </div>
 </nav>
 
 <section class="hero container reveal">
+  <div class="hero-name">VANDANA THAKUR</div>
   <h1>D2C Growth Strategist & Performance Marketer</h1>
   <p>
-  8+ years scaling paid media across Meta, Google & Lead Generation ecosystems.
-  Helping brands move from launch to predictable scale using structured testing and data-first decisions.
+  8+ years scaling Meta, Google & paid campaigns for eCommerce and Lead Generation brands.
+  Helping businesses move from launch to predictable scale using structured testing and data-driven decisions.
   </p>
   <a href="#cases" class="btn">View Case Studies</a>
 </section>
@@ -265,11 +273,35 @@ footer{
   </div>
 </section>
 
+<section id="industries">
+  <div class="container">
+    <h2 class="reveal">Industries Worked With</h2>
+    <div class="grid">
+      <div class="card reveal">Healthcare</div>
+      <div class="card reveal">Clothing & Fashion</div>
+      <div class="card reveal">Jewellery</div>
+      <div class="card reveal">Dental</div>
+      <div class="card reveal">Lead Generation</div>
+      <div class="card reveal">Footwear</div>
+      <div class="card reveal">Home Decor</div>
+      <div class="card reveal">Skincare</div>
+    </div>
+  </div>
+</section>
+
 <section id="cases">
   <div class="container">
-    <h2 class="reveal">Case Studies</h2>
-    <div class="case-grid">
 
+    <!-- CONNECT ABOVE CASES -->
+    <div class="connect reveal">
+      <a href="#">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Call Me</a>
+    </div>
+
+    <h2 class="reveal">Case Studies</h2>
+
+    <div class="case-grid">
       <div class="case-card reveal">
         <img src="YOUR_IMAGE_URL_HERE" onclick="openModal(this.src)">
         <div class="case-content">
@@ -277,19 +309,8 @@ footer{
           <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
 
-<section id="contact">
-  <div class="container reveal">
-    <h2>Connect With Me</h2>
-    <div class="connect">
-      <a href="#">Email</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Call Me</a>
-    </div>
   </div>
 </section>
 
