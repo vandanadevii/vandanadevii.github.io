@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vandana Devi | Performance Marketing</title>
+<title>Vandana Thakur | Growth Strategist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -12,126 +12,182 @@
   --yellow: #FFD400;
   --black: #000;
   --white: #fff;
-  --gray: #f5f5f5;
+  --gray: #f4f4f4;
+}
+
+body.dark {
+  --white: #111;
+  --black: #fff;
+  --gray: #1c1c1c;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
 body {
-  background: var(--white);
-  color: var(--black);
+  background:var(--white);
+  color:var(--black);
+  transition:0.3s;
 }
 
-html { scroll-behavior: smooth; }
-
 nav {
-  position: fixed;
-  width: 100%;
-  background: var(--white);
-  padding: 20px 80px;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 100;
+  position:fixed;
+  width:100%;
+  background:var(--white);
+  padding:20px 80px;
+  display:flex;
+  justify-content:space-between;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  z-index:100;
 }
 
 nav a {
-  text-decoration: none;
-  color: var(--black);
-  margin-left: 25px;
-  font-weight: 500;
+  text-decoration:none;
+  color:var(--black);
+  margin-left:20px;
+  font-weight:500;
 }
 
-nav a:hover {
-  color: var(--yellow);
+nav a:hover { color:var(--yellow); }
+
+.toggle {
+  cursor:pointer;
+  margin-left:20px;
+  font-weight:600;
 }
 
-section {
-  padding: 120px 80px;
-}
+section { padding:120px 80px; }
 
 .hero {
-  background: var(--yellow);
-  text-align: center;
+  background:var(--yellow);
+  text-align:center;
 }
 
-.hero h1 {
-  font-size: 48px;
-}
-
-.hero p {
-  margin-top: 15px;
-  font-size: 20px;
-}
+.hero h1 { font-size:40px; }
 
 .btn {
-  margin-top: 30px;
-  display: inline-block;
-  padding: 12px 30px;
-  background: var(--black);
-  color: var(--white);
-  text-decoration: none;
-  border-radius: 30px;
+  margin-top:20px;
+  display:inline-block;
+  padding:12px 30px;
+  background:var(--black);
+  color:var(--white);
+  text-decoration:none;
+  border-radius:30px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.box {
+  background:var(--gray);
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:500;
+}
+
+.badges {
+  text-align:center;
+  margin-top:20px;
+}
+
+.badges img {
+  height:40px;
+  margin:10px;
 }
 
 .case-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+  margin-top:50px;
 }
 
 .case-card {
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-  overflow: hidden;
+  background:var(--white);
+  border-radius:12px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.08);
+  overflow:hidden;
+  cursor:pointer;
 }
 
 .case-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+  width:100%;
+  height:220px;
+  object-fit:cover;
 }
 
-.case-content {
-  padding: 25px;
-}
-
-.case-content h3 {
-  margin-bottom: 10px;
-}
+.case-content { padding:25px; }
 
 .metrics {
-  margin-top: 15px;
-  font-weight: 500;
-  line-height: 1.6;
+  margin-top:15px;
+  font-weight:600;
+  line-height:1.6;
 }
 
 .cta {
-  background: var(--yellow);
-  text-align: center;
+  background:var(--yellow);
+  text-align:center;
 }
 
 footer {
-  background: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding: 20px;
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:20px;
 }
 
-@media(max-width:768px) {
-  nav {
-    flex-direction: column;
-  }
-  section {
-    padding: 100px 30px;
-  }
+/* Modal */
+.modal {
+  display:none;
+  position:fixed;
+  z-index:999;
+  padding-top:80px;
+  left:0;top:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+}
+
+.modal img {
+  display:block;
+  margin:auto;
+  max-width:90%;
+  max-height:80%;
+}
+
+.modal span {
+  position:absolute;
+  top:20px;
+  right:40px;
+  color:white;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  nav { flex-direction:column; }
+  section { padding:100px 30px; }
 }
 </style>
 </head>
@@ -139,74 +195,136 @@ footer {
 <body>
 
 <nav>
-  <div><b>Vandana Devi</b></div>
+  <div><b>Vandana Thakur</b></div>
   <div>
+    <a href="#expertise">Expertise</a>
+    <a href="#industries">Industries</a>
     <a href="#cases">Case Studies</a>
     <a href="#contact">Contact</a>
+    <span class="toggle" onclick="toggleMode()">🌙</span>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Performance Marketing Case Studies 🚀</h1>
-  <p>Meta Ads | Google Ads | Lead Generation</p>
+  <h1>D2C Growth Strategist & Performance Marketer</h1>
+  <p>Scaling eCommerce & Lead Generation Brands with Data Driven Paid Ads</p>
   <a class="btn" href="#cases">View Results</a>
-</section>
+  <a class="btn" href="portfolio.pdf" download>Download Portfolio</a>
 
-<section id="cases">
-  <h2>Results Delivered</h2>
-
-  <div class="case-grid">
-
-    <!-- Footwear -->
-    <div class="case-card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="">
-      <div class="case-content">
-        <h3>Footwear Brand</h3>
-        <div class="metrics">
-          4x ROAS<br>
-          $92,834.79 Revenue<br>
-          $30.31 CPR
-        </div>
-      </div>
-    </div>
-
-    <!-- Lead Gen 10k -->
-    <div class="case-card">
-      <img src="https://images.unsplash.com/photo-1557838923-2985c318be48" alt="">
-      <div class="case-content">
-        <h3>Lead Generation (Meta Ads)</h3>
-        <div class="metrics">
-          10,000+ Leads<br>
-          ₹259,799 Spend<br>
-          ~₹60 CPR
-        </div>
-      </div>
-    </div>
-
-    <!-- Lead Gen 500+ -->
-    <div class="case-card">
-      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d" alt="">
-      <div class="case-content">
-        <h3>Lead Generation Campaign</h3>
-        <div class="metrics">
-          500+ Leads<br>
-          $2,587.52 Spend<br>
-          ~$5 CPR
-        </div>
-      </div>
-    </div>
-
+  <div class="badges">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png">
   </div>
 </section>
 
+<section id="expertise">
+<h2>Expertise</h2>
+<div class="grid">
+<div class="box">Meta Ads</div>
+<div class="box">Google Ads</div>
+<div class="box">LinkedIn Ads</div>
+<div class="box">Campaign Management</div>
+<div class="box">CRO</div>
+<div class="box">Performance Analytics</div>
+<div class="box">Tracking Setup</div>
+<div class="box">Brand Scaling</div>
+</div>
+</section>
+
+<section id="industries">
+<h2>Industries Worked With</h2>
+<div class="grid">
+<div class="box">Healthcare</div>
+<div class="box">Clothing</div>
+<div class="box">Jewellery</div>
+<div class="box">Dental</div>
+<div class="box">Lead Generation</div>
+<div class="box">Footwear</div>
+<div class="box">Home Decor</div>
+<div class="box">Skincare</div>
+</div>
+</section>
+
+<section id="cases">
+<h2>Case Studies</h2>
+
+<div class="case-grid">
+
+<div class="case-card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" onclick="openModal(this.src)">
+<div class="case-content">
+<h3>Footwear Brand</h3>
+<div class="metrics">
+<span class="count" data-target="4">0</span>x ROAS<br>
+$92,834 Revenue<br>
+$30 CPR
+</div>
+</div>
+</div>
+
+<div class="case-card">
+<img src="https://images.unsplash.com/photo-1557838923-2985c318be48" onclick="openModal(this.src)">
+<div class="case-content">
+<h3>Lead Generation</h3>
+<div class="metrics">
+<span class="count" data-target="10000">0</span>+ Leads<br>
+₹259,799 Spend<br>
+₹60 CPR
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
 <section id="contact" class="cta">
-  <h2>Let’s Grow Your Business 📈</h2>
-  <p>Email: vandana.observer@gmail.com</p>
+<h2>Let’s Scale Your Brand</h2>
+<p>Email: vandana.observer@gmail.com</p>
 </section>
 
 <footer>
-  © 2026 Vandana Devi | Performance Marketing Consultant
+© 2026 Vandana Thakur | Growth Marketing Consultant
 </footer>
+
+<!-- Modal -->
+<div id="imgModal" class="modal">
+<span onclick="closeModal()">&times;</span>
+<img id="modalImg">
+</div>
+
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬</a>
+
+<script>
+function openModal(src){
+document.getElementById("imgModal").style.display="block";
+document.getElementById("modalImg").src=src;
+}
+function closeModal(){
+document.getElementById("imgModal").style.display="none";
+}
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+const counters=document.querySelectorAll('.count');
+counters.forEach(counter=>{
+counter.innerText='0';
+const updateCounter=()=>{
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+const increment=target/100;
+if(c<target){
+counter.innerText=`${Math.ceil(c+increment)}`;
+setTimeout(updateCounter,20);
+}else{
+counter.innerText=target;
+}
+};
+updateCounter();
+});
+</script>
 
 </body>
 </html>
