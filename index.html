@@ -12,7 +12,6 @@
 :root{
   --yellow:#FFD400;
   --black:#111;
-  --light:#f8f8f8;
 }
 
 *{
@@ -35,27 +34,26 @@ body{
 }
 
 section{
-  padding:80px 0;
+  padding:90px 0;
 }
 
 h1,h2{
   text-align:center;
-  margin-bottom:20px;
 }
 
 h2{
-  font-size:28px;
-  margin-bottom:60px;
+  font-size:26px;
+  margin-bottom:50px;
   font-weight:600;
   letter-spacing:1px;
 }
 
-/* NAV */
+/* ================= NAVBAR ================= */
 
 nav{
   position:fixed;
   width:100%;
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.95);
   backdrop-filter:blur(8px);
   z-index:100;
 }
@@ -65,39 +63,88 @@ nav{
   margin:auto;
   padding:18px 20px;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:600;
+  letter-spacing:2px;
+  font-size:14px;
+}
+
+.menu{
+  display:flex;
   gap:40px;
 }
 
-nav a{
+.menu a{
   text-decoration:none;
   color:var(--black);
-  font-weight:500;
   font-size:14px;
   letter-spacing:1px;
 }
 
-nav a:hover{
+.menu a:hover{
   color:var(--yellow);
 }
 
-/* HERO */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:22px;
+  height:2px;
+  background:#111;
+  transition:0.3s;
+}
+
+/* Mobile Menu */
+
+@media(max-width:768px){
+
+  .menu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    padding:30px 0;
+    display:none;
+    animation:slideDown 0.3s ease;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}
+
+@keyframes slideDown{
+  from{opacity:0; transform:translateY(-10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= HERO ================= */
 
 .hero{
-  padding-top:180px;
+  padding-top:160px;
   text-align:center;
 }
 
-.hero-name{
-  font-size:18px;
-  letter-spacing:3px;
-  font-weight:600;
-  margin-bottom:20px;
-}
-
 .hero h1{
-  font-size:34px;
-  font-weight:600;
+  font-size:32px;
+  margin:15px 0;
 }
 
 .hero p{
@@ -112,29 +159,22 @@ nav a:hover{
   display:inline-block;
   padding:12px 30px;
   background:var(--yellow);
-  border-radius:4px;
   text-decoration:none;
   font-weight:600;
   color:#000;
-  transition:0.3s;
+  font-size:14px;
 }
-
-.btn:hover{
-  opacity:0.85;
-}
-
-/* HERO ICONS */
 
 .hero-connect{
-  margin-top:30px;
+  margin-top:25px;
   display:flex;
   justify-content:center;
-  gap:22px;
+  gap:20px;
 }
 
 .icon-btn{
-  width:45px;
-  height:45px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -142,17 +182,15 @@ nav a:hover{
   text-decoration:none;
   color:#111;
   border:1px solid #ddd;
-  transition:0.3s ease;
-  font-size:16px;
+  transition:0.3s;
 }
 
 .icon-btn:hover{
   background:var(--yellow);
   border-color:var(--yellow);
-  color:#000;
 }
 
-/* GRID CARDS */
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
@@ -164,15 +202,50 @@ nav a:hover{
   padding:25px;
   text-align:center;
   border:1px solid #eee;
-  border-radius:8px;
-  transition:0.3s;
 }
 
 .card:hover{
   border-color:var(--yellow);
 }
 
-/* CASE STUDIES */
+/* ================= TABS ================= */
+
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.tab-btn{
+  padding:8px 18px;
+  border:1px solid #ddd;
+  background:none;
+  cursor:pointer;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.tab-btn.active{
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+
+.tab-content{
+  display:none;
+  animation:fadeIn 0.4s ease;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* ================= CASES ================= */
 
 .case-grid{
   display:grid;
@@ -188,9 +261,7 @@ nav a:hover{
 
 .case-card{
   border:1px solid #eee;
-  border-radius:10px;
   overflow:hidden;
-  transition:0.3s;
 }
 
 .case-card:hover{
@@ -205,20 +276,11 @@ nav a:hover{
 }
 
 .case-content{
-  padding:25px;
+  padding:20px;
   text-align:center;
 }
 
-/* FOOTER */
-
-footer{
-  text-align:center;
-  padding:50px 0;
-  font-size:13px;
-  letter-spacing:1px;
-}
-
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
   display:none;
@@ -240,123 +302,138 @@ footer{
   top:20px;
   right:40px;
   color:#fff;
-  font-size:35px;
+  font-size:30px;
   cursor:pointer;
 }
 
-/* SCROLL REVEAL */
+/* ================= FOOTER ================= */
 
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
+footer{
+  text-align:center;
+  padding:50px 0;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#skills">Expertise</a>
-    <a href="#industries">Industries</a>
-    <a href="#cases">Case Studies</a>
+    <div class="logo">VANDANA THAKUR</div>
+
+    <div class="menu" id="menu">
+      <a href="#skills">Expertise</a>
+      <a href="#industries">Industries</a>
+      <a href="#cases">Case Studies</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
 
-<section class="hero container reveal">
-  <div class="hero-name">VANDANA THAKUR</div>
+<!-- HERO -->
+<section class="hero container">
   <h1>D2C Growth Strategist & Performance Marketer</h1>
   <p>
-  8+ years scaling Meta and Google campaigns for eCommerce and Lead Generation brands.
-  Focused on predictable scaling, structured testing, and performance-driven growth.
+  8+ years scaling Meta, Google and Amazon campaigns for eCommerce & Lead Generation brands.
+  Focused on structured testing, profitability and predictable growth.
   </p>
 
   <a href="#cases" class="btn">View Case Studies</a>
 
   <div class="hero-connect">
-    <a href="vandana.observer@gmail.com" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
+    <a href="mailto:vandana.observer@gmail.com" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
     <a href="https://www.linkedin.com/in/vandana-thakurr/" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="7888928486" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
+    <a href="tel:7888928486" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <h2 class="reveal">Core Expertise</h2>
+    <h2>Core Expertise</h2>
     <div class="grid">
-      <div class="card reveal">Meta Ads</div>
-      <div class="card reveal">Google Ads</div>
-      <div class="card reveal">LinkedIn Ads</div>
-      <div class="card reveal">CRO</div>
-      <div class="card reveal">Campaign Management</div>
-      <div class="card reveal">Tracking Setup</div>
-      <div class="card reveal">Performance Analytics</div>
-      <div class="card reveal">Brand Scaling</div>
+      <div class="card">Meta Ads</div>
+      <div class="card">Google Ads</div>
+      <div class="card">Amazon Ads</div>
+      <div class="card">CRO</div>
+      <div class="card">Tracking Setup</div>
+      <div class="card">Performance Analytics</div>
     </div>
   </div>
 </section>
 
+<!-- INDUSTRIES -->
 <section id="industries">
   <div class="container">
-    <h2 class="reveal">Industries Worked With</h2>
+    <h2>Industries Worked With</h2>
     <div class="grid">
-      <div class="card reveal">Healthcare</div>
-      <div class="card reveal">Fashion</div>
-      <div class="card reveal">Jewellery</div>
-      <div class="card reveal">Dental</div>
-      <div class="card reveal">Lead Generation</div>
-      <div class="card reveal">Footwear</div>
-      <div class="card reveal">Home Decor</div>
-      <div class="card reveal">Skincare</div>
+      <div class="card">Healthcare</div>
+      <div class="card">Fashion</div>
+      <div class="card">Jewellery</div>
+      <div class="card">Dental</div>
+      <div class="card">Footwear</div>
+      <div class="card">Skincare</div>
     </div>
   </div>
 </section>
 
+<!-- CASES -->
 <section id="cases">
   <div class="container">
-    <h2 class="reveal">Case Studies</h2>
+    <h2>Case Studies</h2>
 
-    <div class="case-grid">
-
-      <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-        <div class="case-content">
-          <h3>Footwear Brand</h3>
-          <p>4x ROAS • $92,834 Revenue • $30 CPR</p>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-        <div class="case-content">
-          <h3>Jewellery Brand</h3>
-          <p>3.8x ROAS • ₹18L Revenue • 27% CAC Drop</p>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-        <div class="case-content">
-          <h3>Skincare Brand</h3>
-          <p>2.9x ROAS • 42% CTR Increase</p>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-        <div class="case-content">
-          <h3>Lead Generation</h3>
-          <p>38% CPL Reduction • 5.1x ROI</p>
-        </div>
-      </div>
-
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab(event,'meta')">Meta Ads</button>
+      <button class="tab-btn" onclick="showTab(event,'google')">Google Ads</button>
+      <button class="tab-btn" onclick="showTab(event,'amazon')">Amazon Ads</button>
     </div>
+
+    <!-- META -->
+    <div id="meta" class="tab-content active">
+      <div class="case-grid">
+        <div class="case-card">
+          <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
+          <div class="case-content">
+            <h3>Footwear Brand</h3>
+            <p>4x ROAS • $92,834 Revenue</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGLE -->
+    <div id="google" class="tab-content">
+      <div class="case-grid">
+        <div class="case-card">
+          <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
+          <div class="case-content">
+            <h3>Google Scaling</h3>
+            <p>5.2x ROAS • 32% CPA Drop</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AMAZON -->
+    <div id="amazon" class="tab-content">
+      <div class="case-grid">
+        <div class="case-card">
+          <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
+          <div class="case-content">
+            <h3>Amazon Growth</h3>
+            <p>4.1x ROAS • 28% ACoS Reduction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -370,25 +447,24 @@ footer{
 </div>
 
 <script>
-function openModal(src){
-document.getElementById("imgModal").style.display="block";
-document.getElementById("modalImg").src=src;
-}
-function closeModal(){
-document.getElementById("imgModal").style.display="none";
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
 }
 
-window.addEventListener('scroll',function(){
-const reveals=document.querySelectorAll('.reveal');
-for(let i=0;i<reveals.length;i++){
-let windowHeight=window.innerHeight;
-let elementTop=reveals[i].getBoundingClientRect().top;
-let revealPoint=100;
-if(elementTop < windowHeight - revealPoint){
-reveals[i].classList.add('active');
+function showTab(event,tabId){
+  document.querySelectorAll('.tab-content').forEach(tab=>tab.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.target.classList.add('active');
 }
+
+function openModal(src){
+  document.getElementById("imgModal").style.display="block";
+  document.getElementById("modalImg").src=src;
 }
-});
+function closeModal(){
+  document.getElementById("imgModal").style.display="none";
+}
 </script>
 
 </body>
