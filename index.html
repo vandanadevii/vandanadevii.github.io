@@ -9,8 +9,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
 :root{
   --yellow:#FFD400;
+  --purple:#6C63FF;
+  --pink:#FF4D6D;
+  --blue:#4A90E2;
   --black:#111;
 }
 
@@ -22,7 +26,7 @@
 }
 
 body{
-  background:linear-gradient(135deg,#ffffff,#f7f7f7);
+  background:linear-gradient(135deg,#ffffff,#eef1ff);
   color:var(--black);
   overflow-x:hidden;
 }
@@ -48,7 +52,7 @@ h2{
   letter-spacing:1px;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 nav{
   position:fixed;
@@ -86,7 +90,7 @@ nav{
 }
 
 .menu a:hover{
-  color:var(--yellow);
+  color:var(--purple);
 }
 
 .hamburger{
@@ -100,10 +104,9 @@ nav{
   width:22px;
   height:2px;
   background:#111;
-  transition:0.3s;
 }
 
-/* Mobile Menu */
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -118,7 +121,6 @@ nav{
     gap:25px;
     padding:30px 0;
     display:none;
-    animation:slideDown 0.3s ease;
   }
 
   .menu.active{
@@ -128,14 +130,8 @@ nav{
   .hamburger{
     display:flex;
   }
-}
 
-@keyframes slideDown{
-  from{opacity:0; transform:translateY(-10px);}
-  to{opacity:1; transform:translateY(0);}
 }
-
-/* ================= HERO ================= */
 
 .hero{
   padding-top:160px;
@@ -158,11 +154,12 @@ nav{
   margin-top:20px;
   display:inline-block;
   padding:12px 30px;
-  background:var(--yellow);
+  background:linear-gradient(45deg,var(--purple),var(--pink));
   text-decoration:none;
   font-weight:600;
-  color:#000;
+  color:#fff;
   font-size:14px;
+  border-radius:6px;
 }
 
 .hero-connect{
@@ -186,11 +183,12 @@ nav{
 }
 
 .icon-btn:hover{
-  background:var(--yellow);
-  border-color:var(--yellow);
+  background:var(--purple);
+  color:#fff;
+  border-color:var(--purple);
 }
 
-/* ================= GRID ================= */
+/* GRID */
 
 .grid{
   display:grid;
@@ -202,13 +200,16 @@ nav{
   padding:25px;
   text-align:center;
   border:1px solid #eee;
+  border-radius:8px;
+  transition:0.3s;
 }
 
 .card:hover{
-  border-color:var(--yellow);
+  border-color:var(--purple);
+  transform:translateY(-5px);
 }
 
-/* ================= TABS ================= */
+/* TABS */
 
 .tabs{
   display:flex;
@@ -227,25 +228,20 @@ nav{
 }
 
 .tab-btn.active{
-  background:var(--yellow);
-  border-color:var(--yellow);
+  background:var(--purple);
+  color:#fff;
+  border-color:var(--purple);
 }
 
 .tab-content{
   display:none;
-  animation:fadeIn 0.4s ease;
 }
 
 .tab-content.active{
   display:block;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-/* ================= CASES ================= */
+/* CASE GRID */
 
 .case-grid{
   display:grid;
@@ -261,11 +257,8 @@ nav{
 
 .case-card{
   border:1px solid #eee;
+  border-radius:10px;
   overflow:hidden;
-}
-
-.case-card:hover{
-  border-color:var(--yellow);
 }
 
 .case-card img{
@@ -280,13 +273,39 @@ nav{
   text-align:center;
 }
 
-/* ================= MODAL ================= */
+/* CERTIFICATIONS */
+
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.cert-card{
+  border:1px solid #eee;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.cert-card img{
+  width:100%;
+  cursor:pointer;
+}
+
+.cert-card p{
+  padding:15px;
+  text-align:center;
+}
+
+/* MODAL */
 
 .modal{
   display:none;
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   background:rgba(0,0,0,0.9);
   z-index:999;
 }
@@ -306,16 +325,14 @@ nav{
   cursor:pointer;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
   text-align:center;
   padding:50px 0;
   font-size:13px;
 }
+
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
@@ -327,6 +344,7 @@ footer{
       <a href="#skills">Expertise</a>
       <a href="#industries">Industries</a>
       <a href="#cases">Case Studies</a>
+      <a href="#certifications">Certifications</a>
     </div>
 
     <div class="hamburger" onclick="toggleMenu()">
@@ -339,197 +357,407 @@ footer{
 
 <!-- HERO -->
 <section class="hero container">
-  <h1>D2C Growth Strategist | AI-Driven Marketing + Data Analytics | Content & Creative Strategist</h1>
 
-  <p>
-    I’m Vandana, a D2C Growth Strategist specializing in AI-driven marketing, data analytics, and content-led creative strategy for eCommerce brands.
-  </p>
+<h1>D2C Growth Strategist | AI-Driven Marketing + Data Analytics | Content & Creative Strategist</h1>
 
-  <p>
-   With 8+ years of experience across 90+ global brands, I help businesses scale profitably by building performance-driven growth systems. My expertise includes Google and Meta Ads strategy and scaling, CRO and full-funnel optimization, conversion tracking setup including CAPI, GA4, and GTM, data-backed campaign management, retention and automation workflows, Go-to-Market strategy, brand positioning, and team leadership.
-  </p>
-  
-  <p>
-    I combine paid media, analytics, creative strategy, and funnel thinking to turn traffic into revenue and first-time buyers into loyal customers.
-  </p>
+<p>
+I’m Vandana, a D2C Growth Strategist specializing in AI-driven marketing, data analytics, and content-led creative strategy for eCommerce brands.
+</p>
 
-  <p>
-    If you're looking to scale profitably and build a stronger brand, let’s connect.
-  </p>
+<p>
+With 8+ years of experience across 90+ global brands, I help businesses scale profitably by building performance-driven growth systems.
+</p>
 
-  <a href="#cases" class="btn">View Case Studies</a>
+<p>
+My expertise includes Google and Meta Ads scaling, CRO, full funnel optimization, tracking setup including CAPI, GA4, GTM, retention marketing and growth strategy.
+</p>
 
-  <div class="hero-connect">
-    <a href="mailto:vandana.observer@gmail.com" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/vandana-thakurr/" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="tel:7888928486" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
-  </div>
+<a href="#cases" class="btn">View Case Studies</a>
+
+<div class="hero-connect">
+
+<a href="mailto:vandana.observer@gmail.com" class="icon-btn">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/vandana-thakurr/" class="icon-btn">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="tel:7888928486" class="icon-btn">
+<i class="fa-solid fa-phone"></i>
+</a>
+
+</div>
+
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills">
-  <div class="container">
-    <h2>Core Expertise</h2>
-    <div class="grid">
-      <div class="card">Meta Ads</div>
-      <div class="card">Google Ads</div>
-      <div class="card">Amazon Ads</div>
-      <div class="card">CRO</div>
-      <div class="card">Tracking Setup</div>
-      <div class="card">Performance Analytics</div>
-    </div>
-  </div>
+
+<div class="container">
+
+<h2>Core Expertise</h2>
+
+<div class="grid">
+
+<div class="card">Meta Ads Strategy</div>
+<div class="card">Google Ads Scaling</div>
+<div class="card">Amazon Advertising</div>
+<div class="card">Conversion Rate Optimization</div>
+<div class="card">Analytics & Tracking</div>
+<div class="card">Performance Marketing</div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- INDUSTRIES -->
+
 <section id="industries">
-  <div class="container">
-    <h2>Industries Worked With</h2>
-    <div class="grid">
-      <div class="card">Healthcare</div>
-      <div class="card">Fashion</div>
-      <div class="card">Jewellery</div>
-      <div class="card">Dental</div>
-      <div class="card">Footwear</div>
-      <div class="card">Skincare</div>
-    </div>
-  </div>
+
+<div class="container">
+
+<h2>Industries Worked With</h2>
+
+<div class="grid">
+
+<div class="card">Healthcare</div>
+<div class="card">Fashion</div>
+<div class="card">Jewellery</div>
+<div class="card">Dental</div>
+<div class="card">Footwear</div>
+<div class="card">Skincare</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- CASES -->
+<!-- CASE STUDIES -->
+
 <section id="cases">
-  <div class="container">
-    <h2>Case Studies</h2>
+
+<div class="container">
+
+<h2>Case Studies</h2>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="showTab(event,'meta')">Meta Ads</button>
-  <button class="tab-btn" onclick="showTab(event,'google')">Google Ads</button>
-  <button class="tab-btn" onclick="showTab(event,'amazon')">Amazon Ads</button>
+
+<button class="tab-btn active" onclick="showTab(event,'meta')">
+Meta Ads
+</button>
+
+<button class="tab-btn" onclick="showTab(event,'google')">
+Google Ads
+</button>
+
+<button class="tab-btn" onclick="showTab(event,'amazon')">
+Amazon Ads
+</button>
+
 </div>
 
-    <!-- META -->
+<!-- META TAB -->
+
 <div id="meta" class="tab-content active">
-  <div class="case-grid">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 1</h3>
-        <p>5.2x ROAS • 32% CPA Drop</p>
-      </div>
-    </div>
+<div class="case-grid">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 2</h3>
-        <p>4.8x ROAS • 27% CPA Drop</p>
-      </div>
-    </div>
+<div class="case-card">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 3</h3>
-        <p>6.1x ROAS • 35% Revenue Growth</p>
-      </div>
-    </div>
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 4</h3>
-        <p>3.9x ROAS • 22% CPC Drop</p>
-      </div>
-    </div>
-
-  </div>
+<div class="case-content">
+<h3>Meta Scaling</h3>
+<p>5.2x ROAS • 32% CPA Drop</p>
 </div>
 
-<!-- GOOGLE -->
+</div>
+
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>D2C Growth Campaign</h3>
+<p>4.8x ROAS • 27% CPA Drop</p>
+</div>
+
+</div>
+
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Creative Testing</h3>
+<p>6.1x ROAS • 35% Revenue Growth</p>
+</div>
+
+</div>
+
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Lead Gen Campaign</h3>
+<p>3.9x ROAS • 22% CPC Drop</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GOOGLE TAB -->
+
 <div id="google" class="tab-content">
-  <div class="case-grid">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 1</h3>
-        <p>5.2x ROAS • 32% CPA Drop</p>
-      </div>
-    </div>
+<div class="case-grid">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 2</h3>
-        <p>4.8x ROAS • 27% CPA Drop</p>
-      </div>
-    </div>
+<div class="case-card">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 3</h3>
-        <p>6.1x ROAS • 35% Revenue Growth</p>
-      </div>
-    </div>
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
 
-    <div class="case-card">
-      <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-      <div class="case-content">
-        <h3>Google Scaling 4</h3>
-        <p>3.9x ROAS • 22% CPC Drop</p>
-      </div>
-    </div>
-
-  </div>
+<div class="case-content">
+<h3>Search Campaign</h3>
+<p>5.2x ROAS</p>
 </div>
 
-    <!-- AMAZON -->
-    <div id="amazon" class="tab-content">
-      <div class="case-grid">
-        <div class="case-card">
-          <img src="https://github.com/vandanadevii/vandanadevii.github.io/blob/main/meta.png?raw=true" onclick="openModal(this.src)">
-          <div class="case-content">
-            <h3>Amazon Growth</h3>
-            <p>4.1x ROAS • 28% ACoS Reduction</p>
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
 
-  </div>
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Shopping Ads</h3>
+<p>Revenue Growth 42%</p>
+</div>
+
+</div>
+
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Brand Campaign</h3>
+<p>CTR Improved 65%</p>
+</div>
+
+</div>
+
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Performance Max</h3>
+<p>ROAS 4.4x</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- AMAZON TAB -->
+
+<div id="amazon" class="tab-content">
+
+<div class="case-grid">
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Amazon Growth Strategy</h3>
+<p>4.1x ROAS • 28% ACoS Reduction</p>
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Listing Optimization</h3>
+<p>Revenue +38%</p>
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Sponsored Product Ads</h3>
+<p>ACoS Reduced 24%</p>
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="https://raw.githubusercontent.com/vandanadevii/vandanadevii.github.io/main/meta.png"
+onclick="openModal(this.src)">
+
+<div class="case-content">
+<h3>Amazon Brand Campaign</h3>
+<p>ROAS 3.9x</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<footer>
-© 2026 Vandana Thakur | Growth Marketing Consultant
-</footer>
 
-<div id="imgModal" class="modal">
-  <span onclick="closeModal()">&times;</span>
-  <img id="modalImg">
+<!-- CERTIFICATIONS SECTION -->
+
+<section id="certifications">
+
+<div class="container">
+
+<h2>Certifications</h2>
+
+<div class="cert-grid">
+
+<div class="cert-card">
+
+<img src="images/cert1.jpg"
+onclick="openModal(this.src)">
+
+<p>Google Ads Certification</p>
+
 </div>
 
+
+<div class="cert-card">
+
+<img src="images/cert2.jpg"
+onclick="openModal(this.src)">
+
+<p>Meta Ads Professional Certification</p>
+
+</div>
+
+
+<div class="cert-card">
+
+<img src="images/cert3.jpg"
+onclick="openModal(this.src)">
+
+<p>Google Analytics Certification</p>
+
+</div>
+
+
+<div class="cert-card">
+
+<img src="images/cert4.jpg"
+onclick="openModal(this.src)">
+
+<p>Performance Marketing Certification</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Vandana Thakur | Growth Marketing Consultant
+
+</footer>
+
+
+<!-- IMAGE MODAL -->
+
+<div id="imgModal" class="modal">
+
+<span onclick="closeModal()">&times;</span>
+
+<img id="modalImg">
+
+</div>
+
+
 <script>
+
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
+document.getElementById("menu").classList.toggle("active");
 }
 
 function showTab(event,tabId){
-  document.querySelectorAll('.tab-content').forEach(tab=>tab.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-  event.target.classList.add('active');
+
+document.querySelectorAll('.tab-content').forEach(tab=>{
+tab.classList.remove('active');
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+btn.classList.remove('active');
+});
+
+document.getElementById(tabId).classList.add('active');
+event.target.classList.add('active');
+
 }
 
 function openModal(src){
-  document.getElementById("imgModal").style.display="block";
-  document.getElementById("modalImg").src=src;
+
+document.getElementById("imgModal").style.display="block";
+
+document.getElementById("modalImg").src=src;
+
 }
+
 function closeModal(){
-  document.getElementById("imgModal").style.display="none";
+
+document.getElementById("imgModal").style.display="none";
+
 }
+
 </script>
 
 </body>
+
 </html>
+  
